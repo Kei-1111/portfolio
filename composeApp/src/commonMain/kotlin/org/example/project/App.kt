@@ -44,14 +44,16 @@ fun App() {
             color = MaterialTheme.colorScheme.surface,
         ) {
             AnimatedContent(targetState = currentPath, transitionSpec = {
-                (fadeIn(tween(AnimationConfig.LongDuration)) + scaleIn(
-                    initialScale = AnimationConfig.NavigationEnterInitialScale,
-                    animationSpec = tween(AnimationConfig.MediumDuration)
-                )).togetherWith(
+                (
+                    fadeIn(tween(AnimationConfig.LongDuration)) + scaleIn(
+                        initialScale = AnimationConfig.NavigationEnterInitialScale,
+                        animationSpec = tween(AnimationConfig.MediumDuration),
+                    )
+                    ).togetherWith(
                     fadeOut(tween(AnimationConfig.MediumDuration)) + scaleOut(
                         targetScale = AnimationConfig.NavigationExitFinalScale,
-                        animationSpec = tween(AnimationConfig.ShortDuration)
-                    )
+                        animationSpec = tween(AnimationConfig.ShortDuration),
+                    ),
                 )
             }) { targetPath ->
                 when (targetPath) {
