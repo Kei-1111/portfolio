@@ -8,7 +8,8 @@ data object AnimationConfig {
     const val ShortDuration = 500
 
     // Navigation
-    const val NavigationInitialAlpha = 0.1f
+    const val NavigationEnterInitialScale = 0.5f
+    const val NavigationExitFinalScale = 0f
 
     // Splash Screen
     const val SplashInitialProfileIconXOffset = -200f

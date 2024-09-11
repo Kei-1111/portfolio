@@ -1,7 +1,6 @@
 package org.example.project
 
 import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -18,13 +17,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import org.example.project.data.AnimationConfig
 import org.example.project.navigation.Screens.Profile
 import org.example.project.navigation.provideNavigation
 import org.example.project.ui.profile.ProfileScreen
 import org.example.project.ui.splash.SplashScreen
 import org.example.project.ui.theme.AppTheme
 
-@OptIn(ExperimentalAnimationApi::class)
 @Suppress("ModifierMissing")
 @Composable
 fun App() {
@@ -45,13 +44,15 @@ fun App() {
             color = MaterialTheme.colorScheme.surface,
         ) {
             AnimatedContent(targetState = currentPath, transitionSpec = {
-                (fadeIn(tween(2000)) + scaleIn(
-                    initialScale = 0.5f, animationSpec = tween(1000)
+                (fadeIn(tween(AnimationConfig.LongDuration)) + scaleIn(
+                    initialScale = AnimationConfig.NavigationEnterInitialScale,
+                    animationSpec = tween(AnimationConfig.MediumDuration)
                 )).togetherWith(
-                        fadeOut(tween(1000)) + scaleOut(
-                            targetScale = 0f, animationSpec = tween(500)
-                        )
+                    fadeOut(tween(AnimationConfig.MediumDuration)) + scaleOut(
+                        targetScale = AnimationConfig.NavigationExitFinalScale,
+                        animationSpec = tween(AnimationConfig.ShortDuration)
                     )
+                )
             }) { targetPath ->
                 when (targetPath) {
                     Profile.route -> ProfileScreen()
