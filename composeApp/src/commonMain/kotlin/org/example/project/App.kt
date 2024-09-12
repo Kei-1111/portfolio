@@ -18,11 +18,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import org.example.project.data.AnimationConfig
-import org.example.project.navigation.Screens.Profile
+import org.example.project.navigation.Screens
 import org.example.project.navigation.provideNavigation
 import org.example.project.ui.profile.ProfileScreen
 import org.example.project.ui.splash.SplashScreen
 import org.example.project.ui.theme.AppTheme
+import org.example.project.ui.top.TopScreen
 
 @Suppress("ModifierMissing")
 @Composable
@@ -57,11 +58,19 @@ fun App() {
                 )
             }) { targetPath ->
                 when (targetPath) {
-                    Profile.route -> ProfileScreen()
+                    Screens.Top.route -> TopScreen(
+                        toProfile = {
+                            navController.navigateTo(Screens.Profile.route)
+                        },
+                    )
 
-                    else -> SplashScreen(toProfile = {
-                        navController.navigateTo(Profile.route)
-                    })
+                    Screens.Profile.route -> ProfileScreen()
+
+                    else -> SplashScreen(
+                        toProfile = {
+                            navController.navigateTo(Screens.Top.route)
+                        },
+                    )
                 }
             }
         }

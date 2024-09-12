@@ -12,6 +12,7 @@ data object UiConfig {
 
     // Padding values
     val ContentPadding = 50.dp
+    val ExtraLargePadding = 40.dp
     val LargePadding = 30.dp
     val MediumPadding = 20.dp
     val SmallPadding = 10.dp
