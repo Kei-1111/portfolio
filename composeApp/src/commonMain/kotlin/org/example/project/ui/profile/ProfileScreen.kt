@@ -119,7 +119,7 @@ fun ProfileHeader(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Image(
-            modifier = Modifier.size(UiConfig.LargeIconSize).clip(CircleShape),
+            modifier = Modifier.size(UiConfig.MediumIconSize).clip(CircleShape),
             painter = painterResource(profileIcon),
             contentDescription = "Profile Icon",
             contentScale = ContentScale.Crop,

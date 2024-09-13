@@ -2,6 +2,8 @@ package org.example.project.data
 
 import org.jetbrains.compose.resources.DrawableResource
 import portfolio.composeapp.generated.resources.Res
+import portfolio.composeapp.generated.resources.img_compose_multiplatform
+import portfolio.composeapp.generated.resources.img_github
 import portfolio.composeapp.generated.resources.img_jetpack_compose
 import portfolio.composeapp.generated.resources.img_kotlin
 
@@ -20,23 +22,16 @@ data object SkillSet {
             name = "Jetpack Compose",
             rating = 3,
         ),
-    )
-
-    val usedLibraries = listOf(
-        "Coil",
-        "Hilt",
-        "KSP",
-        "Kapt",
-        "OkHttp",
-        "kotlinx.serialization",
-        "Retrofit",
-        "Paging",
-        "Room",
-        "Preference DataStore",
-        "Compose Navigation",
-        "Cloud Firestore",
-        "Firebase Authentication",
-        "Jetpack Glance",
+        Skill(
+            image = Res.drawable.img_compose_multiplatform,
+            name = "Compose Multiplatform",
+            rating = 2,
+        ),
+        Skill(
+            image = Res.drawable.img_github,
+            name = "GitHub",
+            rating = 2,
+        ),
     )
 }
 
