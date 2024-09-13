@@ -11,7 +11,7 @@ data object UiConfig {
     val SmallIconSize = 75.dp
 
     // Padding values
-    val ContentPadding = 50.dp
+    val ContentPadding = 70.dp
     val ExtraLargePadding = 40.dp
     val LargePadding = 30.dp
     val MediumPadding = 20.dp
@@ -28,7 +28,6 @@ data object UiConfig {
     const val SplashLoadingAnimationRotation = 25f
 
     // Profile Screen
-    const val ProfileDesktopRightWeight = 1.5f
     val ProfileCareerThickness = 5.dp
     val ProfileCareerDividerWidth = 15.dp
 }
